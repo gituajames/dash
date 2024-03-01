@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9b_b4xu)92jhk_s^cl0$$vm1skj+#@2vv1qn6^*580s2*(ac1r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.100.46', '192.168.0.101', '192.168.2.24', '127.0.0.1' 'techmird.pythonanywhere.com/']
+ALLOWED_HOSTS = ['192.168.100.46', '192.168.0.101', '192.168.2.24', '127.0.0.1', 'techmird.pythonanywhere.com']
 
 
 # Application definition
