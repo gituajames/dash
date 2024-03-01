@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Techmird wifis</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Wifi Available</a></li>
+        <li><a href="#">Hotspots</a></li>
+        <li><a href="#">Status</a></li>
+        <li><a href="#">Hotspot map</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h2>TechMird Wifis</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Wifi Available</a></li>
+        <li><a href="#section2">Hotspots</a></li>
+        <li><a href="#section3">Status</a></li>
+        <li><a href="#section3">Hotspot Map</a></li>
+      </ul><br>
+    </div>
+    <br>
+
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>available wifis</h4>
+          {% if wifi_status %}
+          <table class="styled_table">
+              <thead>
+              <tr>
+                  <th>Wifi Name </th>
+                  <th> wifi channel </th>
+                  <th> Wifi rssi </th>
+                  <th> Wifi Security </th>
+              </tr>
+              </thead>
+
+              <tbody>
+              {% for wifi in wifi_status %}
+              <tr>
+                  <td>{{ wifi.ssid }}</td>
+                  <td>{{wifi.channel}}</td>
+                  <td>{{wifi.rssi}}</td>
+                  <td>WPA</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+          {% else %}
+          <p>no wifi availabel</p>
+          {% endif %}
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>TechMird Office</h4>
+            <p>speed test : </p>
+            <p>upload, download, </p>
+            <p>last updated : </p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>TechMird</h4>
+            <p>speed test : </p>
+            <p>upload, download, </p>
+            <p>last updated : </p>
+          </div>
+        </div>
+        <!-- <div class="col-sm-3"> 
+          <div class="well">
+            <h4>Sessions</h4>
+            <p>10 Million</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Bounce</h4>
+            <p>30%</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="well">
+            <p>Text</p>
+            <p>Text</p>
+            <p>Text</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p>Text</p>
+            <p>Text</p>
+            <p>Text</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p>Text</p>
+            <p>Text</p>
+            <p>Text</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="well">
+            <p>Text</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p>Text</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+{% endblock %}
+
