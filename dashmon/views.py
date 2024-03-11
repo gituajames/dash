@@ -28,7 +28,7 @@ def postdata(request):
 
 
 def show_status(request):
-    wifi_status = Wifis.objects.all()[:5]
+    wifi_status = Wifis.objects.all().order_by("-date_time")
     pingtimes = PingTime.objects.all()
     context = {
         'wifi_status': wifi_status,
