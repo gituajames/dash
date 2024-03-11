@@ -45,7 +45,7 @@
           <table class="styled_table">
               <thead>
               <tr>
-                  <th>Wifi Name </th>
+                  <th> Wifi Name </th>
                   <th> wifi channel </th>
                   <th> Wifi rssi </th>
                   <th> Wifi Security </th>
@@ -67,19 +67,22 @@
           <p>no wifi availabel</p>
           {% endif %}
       </div>
+      {% if pingtimes %}
+      {% for pingtime in pingtimes %}
       <div class="row">
         <div class="col-sm-3">
           <div class="well">
-            <h4>TechMird Office</h4>
-            <p>speed test : </p>
+            <h4>{{ pingtime.ssid }}</h4>
+            <p>ping time : {{ pingtime.ping_time }} sec</p>
             <p>upload, download, </p>
             <p>last updated : </p>
           </div>
         </div>
+        {% endfor %}
         <div class="col-sm-3">
           <div class="well">
             <h4>TechMird</h4>
-            <p>speed test : </p>
+            <p>ping time : </p>
             <p>upload, download, </p>
             <p>last updated : </p>
           </div>
@@ -135,6 +138,9 @@
     </div>
   </div>
 </div> -->
+{% else %}
+<p>no new ping times recorded</p>
+{% endif %}
 
 
 

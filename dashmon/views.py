@@ -3,8 +3,8 @@ from django.http import HttpResponse
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import Wifis
-from .serializers import WifisSerializer
+from .models import Wifis, PingTime
+from .serializers import WifisSerializer, PingTimeSerializers
 
 
 @api_view(['GET'])
@@ -29,11 +29,19 @@ def postdata(request):
 
 def show_status(request):
     wifi_status = Wifis.objects.all()
+    pingtimes = PingTime.objects.all()
     context = {
-        'wifi_status': wifi_status
+        'wifi_status': wifi_status,
+        'pingtimes': pingtimes,
     }
     return render(request, 'dash.html', context)
 
 
-
+@api_view(['POST'])
+def postpingtime(request):
+    serializer = PingTimeSerializers(data=request.data)
+    if serializer.is_valid():
+        print(serializer)
+        serializer.save()
+        return Response(serializer.data)
 # Create your views here.
