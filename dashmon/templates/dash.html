@@ -68,73 +68,29 @@
           {% endif %}
       </div>
       {% if pingtimes %}
-      {% for pingtime in pingtimes %}
+      
       <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
+        {% for pingtime in pingtimes %}
+        <div class="col-sm-4">
+          <div class="well"> 
             <h4>{{ pingtime.ssid }}</h4>
-            <p>ping time : {{ pingtime.ping_time }} sec</p>
-            <p>upload, download, </p>
+            <p>ping time : {{ pingtime.ping_time }} Milisec</p>
+            <!-- <p>upload, download, </p> -->
             <p>last updated : {{ pingtime.ping_date_time }}</p>
           </div>
         </div>
         {% endfor %}
-        </div>
-        <!-- <div class="col-sm-3"> 
-          <div class="well">
-            <h4>Sessions</h4>
-            <p>10 Million</p>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Bounce</h4>
-            <p>30%</p>
-          </div>
-        </div>
       </div>
+      
+      {% else %}
       <div class="row">
         <div class="col-sm-4">
           <div class="well">
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
+            <h4>No Records</h4>  
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="well">
-            <p>Text</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-{% else %}
-<p>no new ping times recorded</p>
-{% endif %}
-
+      {% endif %}
 
 
 {% endblock %}
